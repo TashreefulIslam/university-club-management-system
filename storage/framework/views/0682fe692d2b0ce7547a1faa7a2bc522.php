@@ -1,0 +1,16 @@
+
+<?php $__env->startSection('title', 'Search | UCMS'); ?>
+<?php $__env->startSection('page-title', 'Search'); ?>
+<?php $__env->startSection('eyebrow', 'Global search'); ?>
+
+<?php $__env->startSection('content'); ?>
+    <div class="space-y-6">
+        <form class="rounded-[2rem] border border-slate-200 bg-white p-4 shadow-sm"><input type="search" name="q" value="<?php echo e($term); ?>" placeholder="Search clubs, events, and students" class="w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3"></form>
+        <div class="grid gap-6 lg:grid-cols-3">
+            <div class="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm"><h2 class="text-lg font-bold">Clubs</h2><div class="mt-4 space-y-3"><?php $__empty_1 = true; $__currentLoopData = $clubs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $club): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?><div class="rounded-2xl bg-slate-50 p-4"><p class="font-semibold"><?php echo e($club->name); ?></p><p class="text-sm text-slate-500"><?php echo e($club->short_name); ?></p></div><?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?><p class="text-sm text-slate-500">No clubs found.</p><?php endif; ?></div></div>
+            <div class="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm"><h2 class="text-lg font-bold">Events</h2><div class="mt-4 space-y-3"><?php $__empty_1 = true; $__currentLoopData = $events; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $event): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?><div class="rounded-2xl bg-slate-50 p-4"><p class="font-semibold"><?php echo e($event->title); ?></p><p class="text-sm text-slate-500"><?php echo e($event->venue); ?></p></div><?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?><p class="text-sm text-slate-500">No events found.</p><?php endif; ?></div></div>
+            <div class="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm"><h2 class="text-lg font-bold">Students</h2><div class="mt-4 space-y-3"><?php $__empty_1 = true; $__currentLoopData = $students; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $student): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?><div class="rounded-2xl bg-slate-50 p-4"><p class="font-semibold"><?php echo e($student->name); ?></p><p class="text-sm text-slate-500"><?php echo e($student->email); ?></p></div><?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?><p class="text-sm text-slate-500">No students found.</p><?php endif; ?></div></div>
+        </div>
+    </div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.app', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH D:\Laravel-Projects\university-club-management-system\resources\views/search/index.blade.php ENDPATH**/ ?>
